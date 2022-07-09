@@ -2,9 +2,31 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+    <div @click="logout">Logout</div>
   </nav>
   <router-view/>
 </template>
+
+<script>
+import store from '@/store/index';
+import router from '@/router';
+
+export default {
+  setup() {
+
+    const logout = () => {
+      // store.dispatch('userStore/clearUser');
+      router.push('/login');
+    };
+
+    return {
+      logout
+    };
+    
+  },
+}
+</script>
+
 
 <style>
 #app {
